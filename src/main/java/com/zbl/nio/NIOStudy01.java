@@ -94,6 +94,7 @@ public class NIOStudy01 {
 				if(key.isAcceptable()){
 					//如果是accept,生成一个channel
 					SocketChannel socketChannel = serverSocketChannel.accept();
+					socketChannel.configureBlocking(false);
 					//注册read事件到selector上
 					 socketChannel.register(selector, SelectionKey.OP_READ,ByteBuffer.allocate(1024));
 				}
@@ -106,4 +107,23 @@ public class NIOStudy01 {
 			}
 		}
 	}
+	@Test
+	public   void socketClient() throws IOException {
+		SocketChannel socketChannel = SocketChannel.open();
+
+		socketChannel.configureBlocking(false);
+		if(!socketChannel.connect(new InetSocketAddress(6666))){
+			boolean connected = socketChannel.isConnected();
+			System.out.println("connected:"+connected);
+			while(!socketChannel.finishConnect()){
+				System.out.println("建立连接中...");
+			}
+		}
+
+		String str="test.........";
+		ByteBuffer wrap = ByteBuffer.wrap(str.getBytes());
+		socketChannel.write(wrap);
+	}
+
+
 }
