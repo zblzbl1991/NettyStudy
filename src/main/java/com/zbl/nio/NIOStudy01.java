@@ -1,5 +1,7 @@
 package com.zbl.nio;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import org.junit.Test;
 
 import java.io.File;
@@ -123,6 +125,12 @@ public class NIOStudy01 {
 		String str="test.........";
 		ByteBuffer wrap = ByteBuffer.wrap(str.getBytes());
 		socketChannel.write(wrap);
+	}
+
+	@Test
+	public void unpooledTest(){
+		ByteBuf buffer = Unpooled.buffer(10);
+//		alloc.calculateNewCapacity()
 	}
 
 
