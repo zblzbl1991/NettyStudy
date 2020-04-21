@@ -1,4 +1,4 @@
-package com.zbl.nio.neyInAcion.c01;
+package com.zbl.nio.neyInAcion.chapter01;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
