@@ -21,7 +21,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf= (ByteBuf) msg;
-        System.out.printf("服务器接收:"+byteBuf.toString(CharsetUtil.UTF_8));
+        System.out.print("服务器接收:" + byteBuf.toString(CharsetUtil.UTF_8));
         ctx.write(byteBuf);
     }
 
