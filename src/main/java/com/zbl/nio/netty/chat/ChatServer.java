@@ -32,7 +32,7 @@ public class ChatServer {
 					pipeline.addLast("decoder", new StringDecoder());
 					//加入编码器
 					pipeline.addLast("encoder", new StringEncoder());
-					pipeline.addLast(null);
+					pipeline.addLast(new ChatServerHandler());
 				}
 			});
 			log.info("服务器启动...");
