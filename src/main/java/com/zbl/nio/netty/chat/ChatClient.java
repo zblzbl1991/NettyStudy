@@ -30,7 +30,7 @@ public class ChatClient {
 
 				}
 			});
-			ChannelFuture sync = handler.connect("127.0.0.1", 6668).sync();
+			ChannelFuture sync = handler.connect("127.0.0.1", 7000).sync();
 			Channel channel = sync.channel();
 			Scanner scanner = new Scanner(System.in);
 			while (scanner.hasNextLine()){
